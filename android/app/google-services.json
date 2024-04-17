@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "172286231999",
+    "project_id": "uni-lecture-app",
+    "storage_bucket": "uni-lecture-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172286231999:android:22139e4954ee65cc634d0a",
+        "android_client_info": {
+          "package_name": "com.example.uni_lecture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0mo0jl336Y3EnwCqXguUZGm4ITMBjpQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

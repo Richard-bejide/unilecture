@@ -17,6 +17,18 @@ import '../../../../shared/utils/strings.dart';
 class TeacherAccountController extends GetxController {
 
   var loadingImage = false.obs;
+  var enableCaptions = false.obs;
+  var enableReadability = false.obs;
+  var selectedLanguage = 'ENGLISH'.obs;
+
+  var languages = <String>[
+    'ENGLISH',
+    'YORUBA',
+    'IGBO',
+    'HAUSA',
+    'FRENCH',
+    'SPANISH',
+  ].obs;
 
   FirebaseAuth firebase = FirebaseAuth.instance;
   void logout(){

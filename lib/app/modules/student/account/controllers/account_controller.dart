@@ -15,6 +15,18 @@ import '../../../../shared/utils/strings.dart';
 import '../../home/controllers/home_controller.dart';
 
 class AccountController extends GetxController {
+  var enableCaptions = false.obs;
+  var enableReadability = false.obs;
+  var selectedLanguage = 'ENGLISH'.obs;
+
+  var languages = <String>[
+    'ENGLISH',
+    'YORUBA',
+    'IGBO',
+    'HAUSA',
+    'FRENCH',
+    'SPANISH',
+  ].obs;
 
   var loadingImage = false.obs;
 

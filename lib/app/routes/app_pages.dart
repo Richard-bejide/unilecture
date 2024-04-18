@@ -33,6 +33,7 @@ import 'package:uni_lecture/app/modules/teacher/joined_courses/bindings/joined_c
 import 'package:uni_lecture/app/modules/teacher/joined_courses/views/joined_classes_view.dart';
 import 'package:uni_lecture/app/modules/teacher/schedule/bindings/schedule_binding.dart';
 import 'package:uni_lecture/app/modules/teacher/schedule/views/schedule_view.dart';
+import 'package:uni_lecture/app/modules/teacher/schedule_class/bindings/schedule_class_binding.dart';
   import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/splash/views/splash_view.dart';
@@ -43,6 +44,7 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/teacher/course_students/bindings/course_students_binding.dart';
 import '../modules/teacher/course_students/views/course_students_view.dart';
+import '../modules/teacher/schedule_class/views/schedule_class_view.dart';
 import '../modules/teacher/teacher_dashboard/bindings/student_dashboard_binding.dart';
 import '../modules/teacher/teacher_dashboard/views/student_dashboard_view.dart';
 
@@ -190,6 +192,11 @@ class AppPages {
       name: _Paths.TEACHERCOURSESTUDENTS,
       page: () => const TeacherCourseStudentsView(),
       binding: TeacherCourseStudentsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCHEDULE_CLASS,
+      page: () => const ScheduleClass(),
+      binding: ScheduleClassBinding(),
     ),
   ];
 }

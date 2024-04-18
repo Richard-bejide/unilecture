@@ -28,22 +28,22 @@ class HomeController extends GetxController {
 
   var todayClasses = <Map<String, dynamic>>[
     {
-      'title': 'Principles of Algorithms Design',
-      'banner': 'assets/images/banner2.png',
+      'title': 'Python Programming',
+      'banner': 'assets/images/python.png',
       'duration': '1 hour',
       'start': '10:00am',
       'isLive': true,
     },
     {
-      'title': 'Introduction to Artificial Intelligence',
-      'banner': 'assets/images/banner1.png',
+      'title': 'Java Programming',
+      'banner': 'assets/images/java.png',
       'duration': '2 hours',
       'start': '11:00am',
       'isLive': false,
     },
     {
-      'title': 'Human Computer Interaction',
-      'banner': 'assets/images/banner3.png',
+      'title': 'Data Structures & Algorithms',
+      'banner': 'assets/images/algo.png',
       'duration': '2 hours',
       'start': '1:00pm',
       'isLive': false,
@@ -52,24 +52,24 @@ class HomeController extends GetxController {
 
   var tomorrowClasses = <Map<String, dynamic>>[
     {
-      'title': 'Foundations of Computer science',
-      'banner': 'assets/images/banner3.png',
-      'duration': '2 hour',
+      'title': 'Java Programming',
+      'banner': 'assets/images/java.png',
+      'duration': '2 hours',
       'start': '10:00am',
       'isLive': false,
     },
     {
-      'title': 'Human Computer Interaction',
-      'banner': 'assets/images/banner1.png',
-      'duration': '2 hours',
-      'start': '12:00am',
+      'title': 'Python Programming',
+      'banner': 'assets/images/python.png',
+      'duration': '1 hour',
+      'start': '11:00am',
       'isLive': false,
     },
     {
-      'title': 'Introduction to Artificial Intelligence',
-      'banner': 'assets/images/banner2.png',
+      'title': 'Data Structures & Algorithms',
+      'banner': 'assets/images/algo.png',
       'duration': '2 hours',
-      'start': '2:00pm',
+      'start': '1:00pm',
       'isLive': false,
     },
   ].obs;

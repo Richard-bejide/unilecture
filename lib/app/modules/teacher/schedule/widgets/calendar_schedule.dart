@@ -192,7 +192,7 @@ class _ScheduleCalendarState extends State<ScheduleCalendar> {
                           padding: const EdgeInsets.only(bottom: 15.0),
                           child: GestureDetector(
                             onTap:(){
-                              Get.toNamed(Routes.CLASS);
+                              //Get.toNamed(Routes.TEACHER_CLASS);
                               },
                             child: Container(
                               padding: const EdgeInsets.all(8.0),
@@ -312,27 +312,27 @@ final kEvents = LinkedHashMap<DateTime, List<Event>>(
 final _kEventSource = {
   DateTime.utc(kToday.year, kToday.month, kToday.day): [
     const Event(
-        title: 'Foundations of Computer science',
-        teacherImage: 'assets/images/teacher1.png',
-        teacherName: 'Ademola Aderonke',
+        title: 'Python Programming',
+        teacherImage: 'assets/images/python.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
         isLive: true),
   ],
   DateTime.utc(kToday.year, kToday.month, kToday.day + 2): [
     const Event(
-        title: 'Human Computer Interaction',
-        teacherImage: 'assets/images/teacher1.png',
-        teacherName: 'Ademola Aderonke',
+        title: 'Java Programming',
+        teacherImage: 'assets/images/java.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
         isLive: false),
   ],
   DateTime.utc(kToday.year, kToday.month, kToday.day + 4): [
     const Event(
-        title: 'Human Computer Interaction',
-        teacherImage: 'assets/images/teacher1.png',
-        teacherName: 'Ademola Aderonke',
+        title: 'Data Structures & Algorithms',
+        teacherImage: 'assets/images/algo.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
         isLive: false),

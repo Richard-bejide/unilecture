@@ -195,7 +195,9 @@ class TeacherHomeView extends GetView<TeacherHomeController> {
                     padding: const EdgeInsets.only(right: 30.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(Routes.CLASS);
+                        if(cls['isLive']) {
+                          Get.toNamed(Routes.TEACHER_CLASS);
+                        }
                       },
                       child: Container(
                         decoration: BoxDecoration(

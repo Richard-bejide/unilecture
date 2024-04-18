@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CallRoundedButton extends StatelessWidget {
   const CallRoundedButton({
     Key? key,
-    this.size = 64,
+    this.size = 56,
     required this.title,
     required this.iconSrc,
     this.color = Colors.white,
@@ -35,10 +35,10 @@ class CallRoundedButton extends StatelessWidget {
               ),
             ),
             onPressed: press,
-            child: SvgPicture.asset(iconSrc, color: iconColor),
+            child: SvgPicture.asset(iconSrc, color: iconColor,height: 18,),
           ),
           const SizedBox(height: 5),
-          Text(title,style: const TextStyle(color: Colors.white,fontSize: 14,fontWeight: FontWeight.w400))
+          Text(title,style: const TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w400))
         ],
       ),
     );

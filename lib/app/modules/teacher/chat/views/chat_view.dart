@@ -145,7 +145,7 @@ class TeacherChatView extends GetView<TeacherChatController> {
                         ),
                         GestureDetector(
                           onTap: () {
-                           //
+                            Get.toNamed(Routes.SCHEDULE_CLASS);
                           },
                           child: Container(
                             color: Colors.transparent,

@@ -195,8 +195,9 @@ class HomeView extends GetView<HomeController> {
                     padding: const EdgeInsets.only(right: 30.0),
                     child: GestureDetector(
                       onTap: () {
-                        Get.toNamed(Routes.CLASS);
-                      },
+                        if(cls['isLive']) {
+                          Get.toNamed(Routes.CLASS);
+                        }                      },
                       child: Container(
                         decoration: BoxDecoration(
                           color: AppColors.kPrimaryColor.withOpacity(0.1),

@@ -345,7 +345,7 @@ class AccountView extends GetView<AccountController> {
   Widget dropdown() {
     final controller = Get.put(AccountController());
     return SizedBox(
-      width: Get.width * 0.2,
+      width: Get.width * 0.21,
       child: DropdownButton<String>(
           iconSize: 2,
           elevation: 1,

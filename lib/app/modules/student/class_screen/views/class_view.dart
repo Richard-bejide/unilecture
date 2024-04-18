@@ -10,18 +10,77 @@ class ClassView extends GetView<ClassController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Obx(
+        () => controller.joinedClass.value
+          ? Scaffold(
+              backgroundColor: Colors.black,
+              body: Stack(
+                children: [
+                  Center(child: _renderRemoteVideo()),
+                  Positioned(
+                    top: 50,
+                    right: 10,
+                    child: _renderLocalPreview(),
+                  ),
+                ],
+              ))
+          : Scaffold(
         backgroundColor: Colors.black,
-        body: Stack(
-          children: [
-            Center(child: _renderRemoteVideo()),
-            Positioned(
-              top: 50,
-              right: 10,
-              child: _renderLocalPreview(),
+        body:  Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+              SizedBox(
+              height: 30,
+              width: 30,
+              child: CircularProgressIndicator(
+                color: AppColors.kPrimaryColor,
+                strokeWidth: 3,
+              ),
+              ),
+                const SizedBox(height: 20,),
+                Center(
+                  child: Text(
+                    'Waiting for your teacher\'s approval to join',
+                    style: AppText.semiBoldText
+                        .copyWith(fontSize: 12, fontWeight: FontWeight.w300, color: Colors.white),
+                  ),
+                ),
+                const SizedBox(height: 12,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                        onTap: () async {
+                          Get.back();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.red.withOpacity(0.1),
+                              shape: BoxShape.rectangle,
+                              borderRadius: const BorderRadius.all(Radius.circular(16))),
+                          child: Padding(
+                            padding: const EdgeInsets.all(6),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Go Back',
+                                  style: AppText.regularText.copyWith(color: Colors.red, fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
+                  ],
+                )
+              ],
             ),
-          ],
-        ));
+        ),
+      ),
+    );
   }
 
   // current user video
@@ -29,7 +88,7 @@ class ClassView extends GetView<ClassController> {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.4), borderRadius: const BorderRadius.all(Radius.circular(8))),
           child: Column(
@@ -38,7 +97,7 @@ class ClassView extends GetView<ClassController> {
             children: [
               Center(
                 child: Text(
-                  'Students(6)',
+                  'All Students(${controller.students.length})',
                   style: AppText.semiBoldText.copyWith(
                     fontSize: 12,
                     color: Colors.white,
@@ -48,164 +107,49 @@ class ClassView extends GetView<ClassController> {
               const SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                height: Get.height * 0.3,
-                width: Get.width * 0.2,
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.all(0),
-                  children: [
-                    Image.asset(
-                      'assets/images/student_call1.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      'assets/images/student_call2.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      'assets/images/student_call3.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      'assets/images/student_call1.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      'assets/images/student_call2.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset(
-                      'assets/images/student_call3.png',
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                  ],
-                ),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: Get.height * 0.1, maxWidth: Get.width * 0.7),
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.all(0),
+                    itemCount: controller.students.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      Map<String, dynamic> student = controller.students[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              student['image'] ?? '',
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.cover,
+                            ),
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            SizedBox(
+                              width: 60,
+                              child: Text(
+                                student['name'] ?? '',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(color: Colors.white, fontSize: 10),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
               ),
             ],
           ),
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.4), borderRadius: const BorderRadius.all(Radius.circular(8))),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Text(
-                  'Quick Tools',
-                  style: AppText.semiBoldText.copyWith(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                height: Get.height * 0.15,
-                width: Get.width * 0.2,
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.all(0),
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 16,
-                          child:  Icon(
-                            Icons.chat,
-                            color: Colors.black87,
-                            size: 16,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          'Chat',
-                          style: AppText.semiBoldText.copyWith(
-                            fontSize: 12,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 16,
-                          child:  Icon(
-                            Icons.back_hand_sharp,
-                            color: Colors.black87,
-                            size: 16,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          'Raise Hand',
-                          style: AppText.semiBoldText.copyWith(
-                            fontSize: 12,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        )
       ],
     );
   }
@@ -253,12 +197,32 @@ class ClassView extends GetView<ClassController> {
                 CallRoundedButton(
                   press: () {},
                   color: classController.mute ? AppColors.kPrimaryColor : Colors.white,
+                  iconSrc: "assets/icons/chat1.svg",
+                  iconColor: Colors.white,
+                  title: 'Chat',
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                CallRoundedButton(
+                  press: () {},
+                  color: classController.mute ? AppColors.kPrimaryColor : Colors.white,
+                  iconSrc: "assets/icons/raise_hand.svg",
+                  iconColor: Colors.white,
+                  title: 'Raise Hand',
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                CallRoundedButton(
+                  press: () {},
+                  color: classController.mute ? AppColors.kPrimaryColor : Colors.white,
                   iconSrc: "assets/icons/mic.svg",
                   iconColor: Colors.white,
                   title: 'Mute',
                 ),
                 const SizedBox(
-                  width: 15,
+                  width: 8,
                 ),
                 CallRoundedButton(
                   press: () {},
@@ -268,7 +232,7 @@ class ClassView extends GetView<ClassController> {
                   color: classController.flipCamera ? AppColors.kPrimaryColor : Colors.white,
                 ),
                 const SizedBox(
-                  width: 15,
+                  width: 8,
                 ),
                 CallRoundedButton(
                   press: () {

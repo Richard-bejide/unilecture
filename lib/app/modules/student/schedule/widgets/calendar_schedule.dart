@@ -193,7 +193,7 @@ class _ScheduleCalendarState extends State<ScheduleCalendar> {
                           padding: const EdgeInsets.only(bottom: 15.0),
                           child: GestureDetector(
                             onTap:(){
-                              Get.toNamed(Routes.CLASS);
+                              //Get.toNamed(Routes.CLASS);
                               },
                             child: Container(
                               padding: const EdgeInsets.all(8.0),
@@ -313,48 +313,27 @@ final kEvents = LinkedHashMap<DateTime, List<Event>>(
 final _kEventSource = {
   DateTime.utc(kToday.year, kToday.month, kToday.day): [
     const Event(
-        title: 'Foundations of Computer science',
-        teacherImage: 'assets/images/teacher1.png',
-        teacherName: 'Folake Adeshakin',
+        title: 'Python Programming',
+        teacherImage: 'assets/images/python.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
         isLive: true),
-    const Event(
-        title: 'Human Computer Interaction',
-        teacherImage: 'assets/images/teacher2.png',
-        teacherName: 'dewale George',
-        startTime: '11:00am',
-        endTime: '1:00pm',
-        isLive: false),
-    const Event(
-        title: 'Introduction to Artificial Intelligence',
-        teacherImage: 'assets/images/teacher3.png',
-        teacherName: 'Richard Adebayo',
-        startTime: '1:00pm',
-        endTime: '4:00pm',
-        isLive: false),
   ],
   DateTime.utc(kToday.year, kToday.month, kToday.day + 2): [
     const Event(
-        title: 'Human Computer Interaction',
-        teacherImage: 'assets/images/teacher2.png',
-        teacherName: 'dewale George',
+        title: 'Java Programming',
+        teacherImage: 'assets/images/java.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
-        isLive: false),
-    const Event(
-        title: 'Foundations of Computer science',
-        teacherImage: 'assets/images/teacher1.png',
-        teacherName: 'Folake Adeshakin',
-        startTime: '11:00am',
-        endTime: '1:00pm',
         isLive: false),
   ],
   DateTime.utc(kToday.year, kToday.month, kToday.day + 4): [
     const Event(
-        title: 'Human Computer Interaction',
-        teacherImage: 'assets/images/teacher2.png',
-        teacherName: 'dewale George',
+        title: 'Data Structures & Algorithms',
+        teacherImage: 'assets/images/algo.png',
+        teacherName: 'Richard Bejide',
         startTime: '9:00am',
         endTime: '11:00am',
         isLive: false),

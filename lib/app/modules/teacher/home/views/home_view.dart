@@ -140,7 +140,7 @@ class TeacherHomeView extends GetView<TeacherHomeController> {
           children: [
             Obx(
               () => Text(
-                'Classes you have ${controller.selectedClassesFilter.value == 1 ? 'Today' : 'Tomorrow'}',
+                'Classes you are taking ${controller.selectedClassesFilter.value == 1 ? 'Today' : 'Tomorrow'}',
                 style: AppText.semiBoldText,
               ),
             ),
@@ -347,7 +347,7 @@ class TeacherHomeView extends GetView<TeacherHomeController> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'All Your Courses',
+              'All your created Courses',
               style: AppText.semiBoldText,
             ),
             const SizedBox(

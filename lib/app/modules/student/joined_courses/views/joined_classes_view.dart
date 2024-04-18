@@ -30,10 +30,10 @@ class JoinedClassesView extends GetView<JoinedClassesController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'All Courses',
+                    'All Your Courses',
                     style: TextStyle(
                       color: Color(0xFF1D2939),
-                      fontSize: 24,
+                      fontSize: 17,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

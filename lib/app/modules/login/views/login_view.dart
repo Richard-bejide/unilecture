@@ -39,7 +39,7 @@ class LoginView extends GetView<LoginController> {
                     SizedBox(
                       width: Get.width * 0.9,
                       child: Text(
-                        'let\'s get you logged in',
+                        'Welcome back to Unilecture',
                         style: AppText.regularText,
                       ),
                     ),

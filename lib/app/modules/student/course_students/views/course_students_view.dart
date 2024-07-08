@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:uni_lecture/app/shared/widgets/back_button.dart';
-import '../../../../models/user_model.dart';
-import '../../../../routes/app_pages.dart';
 import '../../../../shared/utils/colors.dart';
 import '../../../../shared/utils/text_style.dart';
-import '../../chat/controllers/chat_controller.dart';
 import '../controllers/course_students_controller.dart';
 
 class CourseStudentsView extends GetView<CourseStudentsController> {
